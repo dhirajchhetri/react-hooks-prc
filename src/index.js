@@ -1,15 +1,17 @@
-import React, { useEffect, useReducer, useRef, useState } from "react";
+import React, { createContext, useEffect, useReducer, useRef, useState, } from "react";
 import ReactDOM from "react-dom";
+import App from "./App";
 
-function App() {
- return (
-   <h1>Hello World</h1>
- )
-}
+export const TreesContext = createContext()
 
+const Trees= [
+  { id: 1, type:"Maple"},
+  { id: 2, type:"Oak"},
+  { id: 3, type:"Teak"}
+]
 ReactDOM.render(
-  <React.StrictMode>
+  <TreesContext.Provider value={Trees}>
     <App />
-  </React.StrictMode>,
+  </TreesContext.Provider >,
   document.getElementById("root")
 );
